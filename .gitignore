@@ -1,0 +1,7 @@
+##Extra datasets
+otherStuff/
+*.zip
+*.csv
+
+#Notebooks
+.ipynb_checkpoints
