@@ -2,6 +2,7 @@
 otherStuff/
 *.zip
 *.csv
+*.mp4
 
 #Notebooks
 .ipynb_checkpoints

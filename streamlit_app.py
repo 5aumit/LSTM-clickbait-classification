@@ -33,7 +33,8 @@ def predict(message):
 # In[12]:
 
 
-st.title('Clickbait Predictor')
+st.title('Clickbait Predior')
+st.subheader('This app uses an LSTM Model to predict whether the given text is clickbait or not')
 message = st.text_area('Enter a title')
 if st.button("Analyze"):
     with st.spinner("Analyzing"):
