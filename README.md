@@ -8,5 +8,5 @@ The dataset used to train this model can be found [here.](https://www.kaggle.com
 
 #### Model Architecture
 
-![image](https://drive.google.com/file/d/1sAeW5yWEzw4qXFPfQXbrsGtB_zkGu85b/view?usp=sharing)
+![image](architecture.png)
 
