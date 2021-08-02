@@ -10,22 +10,25 @@ import pandas as pd
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import tokenizer_from_json
 import texthero as hero
+import json
+import numpy as np
 
 
 # In[9]:
 
 
+model = model=load_model("saves\\tf_lstmmodel.h5")
 def predict(message):
-    model=load_model("saves\\tf_lstmmodel.h5")
-    lemm = hero.clean(pd.Series([message])).tolist()
-    with open('saves/tokenizer.pickle', 'rb') as handle:
-        tokenizer = pickle.load(handle)
-    x_1 = tokenizer.texts_to_sequences([lemm])
-    x_1 = pad_sequences(x_1, maxlen=100)
-    predictions = model.predict(x_1)[0][0]
-    return predictions
-
+    t = hero.clean(pd.Series([message])).tolist()
+    with open('saves\\tokenizer.json') as json_file:
+        json_string = json.load(json_file)
+    tokenizer = tokenizer_from_json(json_string)
+    x_1  = np.array(tokenizer.texts_to_sequences(t))
+    x_1 = pad_sequences(x_1, padding='post', maxlen=100)
+    prediction = model.predict(x_1)[0][0]
+    return prediction
 
 # In[12]:
 
