@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+seaborn
+jupyterlab
+scikit-learn
+tensorflow
+texthero
+gensim
+streamlit
+pydot

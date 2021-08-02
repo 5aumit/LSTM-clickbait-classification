@@ -22,7 +22,7 @@ def predict(message):
     with open('saves/tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
     x_1 = tokenizer.texts_to_sequences([lemm])
-    x_1 = pad_sequences(x_1, maxlen=500)
+    x_1 = pad_sequences(x_1, maxlen=100)
     predictions = model.predict(x_1)[0][0]
     return predictions
 
@@ -31,14 +31,14 @@ def predict(message):
 
 
 st.title('Clickbait Predictor')
-message = st.text_area('Enter a title',"Type Here ..")
+message = st.text_area('Enter a title')
 if st.button("Analyze"):
     with st.spinner("Analyzing"):
         prediction = predict(message)
     if prediction >= 0.5:
-        st.warning("This title has a {:.2f}% chance of being clickbait".format(prediction))
+        st.warning("This title has a {:.2f}% chance of being clickbait".format(prediction*100))
     elif prediction <0.5:
-        st.success("This title has a {:.2f}% chance of being clickbait".format(prediction))    
+        st.success("This title has a {:.2f}% chance of being clickbait".format(prediction*100))    
     
 
 
