@@ -22,10 +22,10 @@ import webbrowser
 # In[9]:
 
 
-model = model=load_model("saves\\tf_lstmmodel.h5")
+model = model=load_model("saves/tf_lstmmodel.h5")
 def predict(message):
     t = hero.clean(pd.Series([message])).tolist()
-    with open('saves\\tokenizer.json') as json_file:
+    with open('saves/tokenizer.json') as json_file:
         json_string = json.load(json_file)
     tokenizer = tokenizer_from_json(json_string)
     x_1  = np.array(tokenizer.texts_to_sequences(t))
