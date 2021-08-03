@@ -1,5 +1,7 @@
 # Clickbait Detection Web App
 
+App URL:- https://lstm-clickbait-detection.herokuapp.com/
+
 This is a web app which detects whether or not a headline or video title is clickbait.<br>
 
 This web app uses LSTM as the backend model.<br>
