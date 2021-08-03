@@ -11,3 +11,6 @@ model_bert.ipynb
 
 README.txt
 requirements2.txt
+
+saves/tf_lstmmodel
+saves/tf_lstmmodel.hdf5
