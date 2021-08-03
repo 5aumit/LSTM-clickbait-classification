@@ -5,6 +5,8 @@
 
 
 import streamlit as st
+st.set_page_config(page_title = 'Clickbait Detector')
+
 import pickle
 import pandas as pd
 from tensorflow.keras.models import load_model
@@ -14,6 +16,7 @@ from tensorflow.keras.preprocessing.text import tokenizer_from_json
 import texthero as hero
 import json
 import numpy as np
+import webbrowser
 
 
 # In[9]:
@@ -33,16 +36,19 @@ def predict(message):
 # In[12]:
 
 
-st.title('Clickbait Predior')
-st.subheader('This app uses an LSTM Model to predict whether the given text is clickbait or not')
-message = st.text_area('Enter a title')
+st.title('Clickbait Detector')
+st.subheader('This app uses an LSTM Model to predict whether the given text is clickbait or not.')
+message = st.text_area('Enter the title of an article or video from the internet.')
 if st.button("Analyze"):
     with st.spinner("Analyzing"):
         prediction = predict(message)
     if prediction >= 0.5:
         st.warning("This title has a {:.2f}% chance of being clickbait".format(prediction*100))
     elif prediction <0.5:
-        st.success("This title has a {:.2f}% chance of being clickbait".format(prediction*100))    
+        st.success("This title has a {:.2f}% chance of being clickbait".format(prediction*100))
+        
+url = 'https://github.com/5aumit/LSTM-clickbait-classification'
+st.write("[GitHub](%s)"%url)
     
 
 
