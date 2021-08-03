@@ -4,6 +4,7 @@ otherStuff/
 *.csv
 *.mp4
 
+venv/
 #Notebooks
 .ipynb_checkpoints
 model_bert.ipynb
